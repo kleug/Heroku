@@ -1,0 +1,42 @@
+{
+    "global": {
+	"welcomeMessage": "Hooray! Welcome to our private API! Made with <3 by Joris Bertomeu <joris.bertomeu@epitech.eu>"
+    },
+    "lava": {
+	"api": {
+	    "username": "powerci",
+	    "token": "n4q5ksdmahr600i5aa4h38taobfexu939gg1c53xgz89iuce25cc98pouy06iypqm0kk8l58luu4ukgzsnkf6fef4afma3f38qijw0lcfnxgz4wtdx152j90a6r0hqxu",
+	    "server": "lava.baylibre.com:10080/RPC2"
+	}
+    },
+    "mail": {
+	"welcomeMail": {
+	    "settings": {
+		"fromName": "Petitchef",
+		"fromAddress": "contact@petitchef.me",
+		"subject": "Welcome to Petitchef !"
+	    },
+	    "templates": {
+		"html": "./templates/mail_welcome_html.html",
+		"text": "./templates/mail_welcome_text.txt"
+	    }
+	},
+	"forgotMail": {
+	    "settings": {
+		"fromName": "Petitchef",
+		"fromAddress": "contact@petitchef.me",
+		"subject": "Password reset request"
+	    },
+	    "templates": {
+		"html": "./templates/mail_forgot_html.html",
+		"text": "./templates/mail_forgot_text.txt"
+	    }
+	},
+	"smtp": {
+	    "server": "petitchef.me",
+	    "port": 587,
+	    "user": "system@petitchef.me",
+	    "password": "petitchef2016"
+	}
+    }
+}

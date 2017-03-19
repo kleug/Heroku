@@ -1,0 +1,422 @@
+{
+	"swagger": "2.0",
+	"info": 
+	{
+		"version": "1.0.0",
+		"title": "Sample spec",
+		"description": "Sample spec for Swagger",
+		"termsOfService": "http://swagger.io/terms/"
+	},
+
+	"basePath": "/",
+	"tags": 
+	[
+		{
+			"name": "Users",
+			"description": "Tools for crate and manipulate user"
+		},
+
+		{
+			"name": "Recette",
+			"description": "Tools for crate and manipulate user"
+		},
+
+		{
+			"name": "Stock",
+			"description": "Tools for crate and manipulate stock"
+		}
+	],
+
+	"schemes": 
+	[
+		"https"
+	],
+
+	"consumes": 
+	[
+		"application/json"
+	],
+
+	"produces": 
+	[
+		"application/json"
+	],
+
+	"paths": 
+	{
+		"/users/register": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"Users"
+				],
+
+				"summary" : "Create user",
+				"description": "Create or update an user as defined in the JSON data. The request will be accepted and it will begin to parse the available data.",
+				"operationId": "createUser",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "body",
+						"in": "body",
+						"description": "Created user in BDD",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/UserRegister"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"201": 
+					{
+						"description": "User created successfully",
+						"schema": 
+						{
+							"$ref": "#/definitions/User"
+						}
+					},
+					"403":
+					{
+						"description": "Not authorized to perform the operation"
+					},
+					"409":
+					{
+						"description": "Unable to save object"
+					},
+					"404":
+					{
+						"description": "The provided resource has not been found"
+					},
+					"500":
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/recette/add": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"Recette"
+				],
+
+				"description": "Ajoute un recette en base",
+				"operationId": "for the URL",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "Job Parameters",
+						"in": "body",
+						"description": "Job to add to the database",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/create"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "create response",
+						"schema": 
+						{
+							"$ref": "#/definitions/response"
+						}
+					}
+				}
+			}
+		},
+
+		"/users/logout": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"Users"
+				],
+
+				"description": "what this API does",
+				"operationId": "for the URL",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "Job Parameters",
+						"in": "body",
+						"description": "Job to add to the database",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/create"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "create response",
+						"schema": 
+						{
+							"$ref": "#/definitions/response"
+						}
+					}
+				}
+			}
+		},
+
+		"/users/forgot": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"Users"
+				],
+
+				"description": "what this API does",
+				"operationId": "for the URL",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "Job Parameters",
+						"in": "body",
+						"description": "Job to add to the database",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/create"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "create response",
+						"schema": 
+						{
+							"$ref": "#/definitions/response"
+						}
+					}
+				}
+			}
+		},
+
+		"/users/{iffdgd}": 
+		{
+			"delete": 
+			{
+				"tags": 
+				[
+					"Users"
+				],
+
+				"description": "Deletes a something",
+				"operationId": "delete",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "someVariable",
+						"in": "path",
+						"description": "ID to delete",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "delete response",
+						"schema": 
+						{
+							"$ref": "#/definitions/deleteRes"
+						}
+					}
+				}
+			},
+
+			"get": 
+			{
+				"tags": 
+				[
+					"Users"
+				],
+
+				"description": "Returns the status of something",
+				"operationId": "findById",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "ID",
+						"in": "path",
+						"description": "ID to fetch",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "response",
+						"schema": 
+						{
+							"$ref": "#/definitions/response1"
+						}
+					}
+				}
+			}
+		}
+	},
+
+	"definitions": 
+	{
+		"create": 
+		{
+			"properties": 
+			{
+				"eventId": 
+				{
+					"required": true,
+					"type": "string",
+					"example": "mathmaticial"
+				},
+
+				"numberRequired": 
+				{
+					"required": true,
+					"type": "integer",
+					"format": "int64",
+					"example": 500
+				}
+			}
+		},
+
+		"response1": 
+		{
+			"properties": 
+			{
+				"jobID": 
+				{
+					"required": true,
+					"type": "string",
+					"example": "23423456543"
+				},
+
+				"request": 
+				{
+					"required": true,
+					"type": "schema",
+					"example": 
+					{
+						"eventId": "mathmaticial",
+						"numberRequired": 500
+					}
+				}
+			}
+		},
+
+		"User": 
+		{
+			"type" : "object",
+			"properties":
+			{
+				"username": 
+				{
+					"required": true,
+					"type": "string"
+				},
+				"password": 
+				{
+					"required": true,
+					"type": "string"
+				},
+				"email": 
+				{
+					"required": true,
+					"type": "string"
+				}
+			}
+		},
+
+		"delete": 
+		{
+			"properties": 
+			{
+				"jobID": 
+				{
+					"required": true,
+					"type": "string",
+					"example": "234344234234"
+				},
+
+				"status": 
+				{
+					"required": true,
+					"type": "string",
+					"example": "deleted"
+				}
+			}
+		},
+
+		"400error": 
+		{
+			"properties": 
+			{
+				"message": 
+				{
+					"type": "string",
+					"example": "400 Bad Request"
+				}
+			}
+		}
+	}
+}

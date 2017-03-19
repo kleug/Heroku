@@ -1,0 +1,986 @@
+{
+	"swagger": "2.0",
+	"info": 
+	{
+		"description": "",
+		"version": "1.0.0",
+		"title": "API Petit Chef Documentation",
+		"contact": 
+		{
+			"email": "petitchef_2018@labeip.epitech.eu"
+		},
+
+		"license": 
+		{
+			"name": "licence X11",
+			"url": "https://opensource.org/licenses/MIT"
+		}
+	},
+
+	"basePath": "/",
+	"tags": 
+	[
+		{
+			"name": "user",
+			"description": "Operations about user"
+		},
+
+		{
+			"name": "recipe",
+			"description": "Operations about recipe"
+		},
+
+		{
+			"name": "stock",
+			"description": "Operations about stock"
+		}
+	],
+
+	"schemes": 
+	[
+		"http"
+	],
+
+	"paths": 
+	{
+		"/users": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"user"
+				],
+
+				"summary": "Create user",
+				"description": "Create or update an user as defined in the JSON data. The request will be accepted and it will begin to parse the available data.",
+				"operationId": "createUser",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Created user object",
+						"required": "true",
+						"schema": 
+						{
+							"$ref": "#/definitions/User"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "User created successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/user/{user_id}": 
+		{
+			"get": 
+			{
+				"tags": 
+				[
+					"user"
+				],
+
+				"summary": "Get user by id",
+				"description": "Get all the available user or a single one if user_id is provided",
+				"operationId": "getUserById",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "user_id",
+						"in": "path",
+						"description": "The user_id of the User we want to get.",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Results found"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"put": 
+			{
+				"tags": 
+				[
+					"user"
+				],
+
+				"summary": "Updated user",
+				"description": "Modify the user_id provided",
+				"operationId": "updateUser",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "user_id",
+						"in": "path",
+						"description": "user_id",
+						"required": true,
+						"type": "string"
+					},
+
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Updated user object",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/UserUpdate"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": " User modify successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"delete": 
+			{
+				"tags": 
+				[
+					"user"
+				],
+
+				"summary": "Delete user",
+				"description": "Delete the user_id provided",
+				"operationId": "deleteUser",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "user_id",
+						"in": "path",
+						"description": "The user_id that needs to be deleted",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "User deleted successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/recipe": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"recipe"
+				],
+
+				"summary": "Create recipe",
+				"description": "Create a recipe as defined in the JSON data. The request will be accepted and it will begin to parse the available data.",
+				"operationId": "createRecipe",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Created Recipe object",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/Recipe"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Recipe created successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/recipe/{stock_id}": 
+		{
+			"get": 
+			{
+				"tags": 
+				[
+					"recipe"
+				],
+
+				"summary": "Get recipe",
+				"description": "Get all the available recipes or a single one if recipe_id is provided",
+				"operationId": "getRecipekById",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "recipe_id",
+						"in": "path",
+						"description": "The recipe_id of the stock we want to get.",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Results found"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"put": 
+			{
+				"tags": 
+				[
+					"recipe"
+				],
+
+				"summary": "Updated recipe",
+				"description": "Modify the recipe_id provided",
+				"operationId": "updateRecipe",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Updated Recipe object",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/Recipe"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Stock modify successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"delete": 
+			{
+				"tags": 
+				[
+					"recipe"
+				],
+
+				"summary": "Delete recipe",
+				"description": "Delete the recipe_id provided",
+				"operationId": "deleteRecipe",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "recipe_id",
+						"in": "path",
+						"description": "The recipe_id that needs to be deleted",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Recipe deleted successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/stock": 
+		{
+			"post": 
+			{
+				"tags": 
+				[
+					"stock"
+				],
+
+				"summary": "Create stock",
+				"description": "Create or update a stock as defined in the JSON data. The request will be accepted and it will begin to parse the available data.",
+				"operationId": "createStock",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Created Stock object",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/Stock"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Stock created successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		},
+
+		"/stock/{stock_id}": 
+		{
+			"get": 
+			{
+				"tags": 
+				[
+					"stock"
+				],
+
+				"summary": "Get stock",
+				"description": "Get all the available stocks or a single one if stock_id is provided",
+				"operationId": "getStockById",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "stock_id",
+						"in": "path",
+						"description": "The stock_id of the stock we want to get.",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Results found"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"put": 
+			{
+				"tags": 
+				[
+					"stock"
+				],
+
+				"summary": "Updated stock",
+				"description": "Modify the stock_id provided",
+				"operationId": "updateUser",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"in": "body",
+						"name": "body",
+						"description": "Updated stock object",
+						"required": true,
+						"schema": 
+						{
+							"$ref": "#/definitions/Stock"
+						}
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Stock modify successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			},
+
+			"delete": 
+			{
+				"tags": 
+				[
+					"stock"
+				],
+
+				"summary": "Delete stock",
+				"description": "Delete the stock_id provided",
+				"operationId": "deleteStock",
+				"produces": 
+				[
+					"application/json"
+				],
+
+				"parameters": 
+				[
+					{
+						"name": "stock_id",
+						"in": "path",
+						"description": "The stock_id that needs to be deleted",
+						"required": true,
+						"type": "string"
+					}
+				],
+
+				"responses": 
+				{
+					"200": 
+					{
+						"description": "Stock deleted successfully"
+					},
+
+					"403": 
+					{
+						"description": "Not authorized to perform the operation"
+					},
+
+					"409": 
+					{
+						"description": "Unable to save object"
+					},
+
+					"404": 
+					{
+						"description": "The provided resource has not been found"
+					},
+
+					"500": 
+					{
+						"description": "Internal database error"
+					}
+				}
+			}
+		}
+	},
+
+	"securityDefinitions": 
+	{
+		"api_key": 
+		{
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header"
+		}
+	},
+
+	"definitions": 
+	{
+		"User": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"username",
+				"password",
+				"isAdmin",
+				"sendWelcomeMail",
+				"email"
+			],
+
+			"properties": 
+			{
+				"username": 
+				{
+					"type": "string"
+				},
+
+				"password": 
+				{
+					"type": "string"
+				},
+
+				"isAdmin": 
+				{
+					"type": "integer"
+				},
+
+				"sendWelcomeMail": 
+				{
+					"type": "integer"
+				},
+
+				"email": 
+				{
+					"type": "string"
+				}
+			}
+		},
+
+		"UserUpdate": 
+		{
+			"type": "object",
+			"properties": 
+			{
+				"name": 
+				{
+					"type": "string"
+				},
+
+				"password": 
+				{
+					"type": "string"
+				},
+
+				"email": 
+				{
+					"type": "string"
+				}
+			}
+		},
+
+		"Stock": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"user_id",
+				"products"
+			],
+
+			"properties": 
+			{
+				"user_id": 
+				{
+					"type": "string"
+				},
+
+				"products": 
+				{
+					"type": "array",
+					"items": 
+					{
+						"$ref": "#/definitions/Ingredients"
+					}
+				}
+			}
+		},
+
+		"FoodType": 
+		{
+			"type": "string",
+			"required": true
+		},
+
+		"Food": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"name",
+				"picture",
+				"category"
+			],
+
+			"properties": 
+			{
+				"name": 
+				{
+					"type": "string"
+				},
+
+				"picture": 
+				{
+					"type": "string"
+				},
+
+				"category": 
+				{
+					"$ref": "#/definitions/FoodType"
+				}
+			}
+		},
+
+		"Ingredients": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"ean",
+				"quantity"
+			],
+
+			"properties": 
+			{
+				"food": 
+				{
+					"$ref": "#/definitions/Food"
+				},
+
+				"quantity": 
+				{
+					"type": "integer"
+				}
+			}
+		},
+
+		"Step": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"name",
+				"description",
+				"time"
+			],
+
+			"properties": 
+			{
+				"name": 
+				{
+					"type": "string"
+				},
+
+				"description": 
+				{
+					"type": "string"
+				},
+
+				"time": 
+				{
+					"type": "integer"
+				}
+			}
+		},
+
+		"RecipeType": 
+		{
+			"type": "string",
+			"required": true
+		},
+
+		"Recipe": 
+		{
+			"type": "object",
+			"required": 
+			[
+				"title",
+				"description",
+				"picture",
+				"ingredients",
+				"category",
+				"steps"
+			],
+
+			"properties": 
+			{
+				"title": 
+				{
+					"type": "string"
+				},
+
+				"description": 
+				{
+					"type": "string"
+				},
+
+				"picture": 
+				{
+					"type": "string"
+				},
+
+				"ingredients": 
+				{
+					"type": "array",
+					"items": 
+					{
+						"$ref": "#/definitions/Ingredients"
+					}
+				},
+
+				"category": 
+				{
+					"$ref": "#/definitions/RecipeType"
+				},
+
+				"step": 
+				{
+					"type": "array",
+					"items": 
+					{
+						"$ref": "#/definitions/Step"
+					}
+				}
+			}
+		}
+	}
+}
