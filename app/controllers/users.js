@@ -216,7 +216,7 @@ router.get("/test", function(req, res) {
 	var user = new User();
     var mdsum = crypto.createHash('md5');
 
-    user.username = "NOW";
+    user.username = "toto";
     mdsum.update("test");
 	user.password = mdsum.digest('hex');
 	user.created_on = Date.now() / 1000 | 0;
@@ -228,13 +228,14 @@ router.get("/test", function(req, res) {
 	user.save(function(err) {
 	    if (err) {
 	    	throw err;
+	    	console.log("c'est FINI");
 	    	return Utils.sendError(res, err);
 	    }
 	    else {
+	    	console.log("c'est FINI");
 	    	res.send({message: Utils.Constants._MSG_ARGS_, details: "ok : ", code:Utils.Constants._CODE_OK_});
 	    }
     });
-	console.log("c'est FINI");
 });
 
 router.get("/:id", function(req, res) {
