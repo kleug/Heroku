@@ -28,7 +28,7 @@ var domain = 'localhost'
 var mongoose = Promise.promisifyAll(require('mongoose'));
 
 var mongooseAddress = process.env.MONGOLAB_URI || 'localhost:27017/petitchefv2'
-console.log(process.env);
+console.log('ENV ========= ' + process.env);
 console.log('mongoose  uri  :  ' + process.env.MONGOLAB_URI);
 console.log('mongoose connecting add  :  ' + mongooseAddress);
 mongoose.connect(mongooseAddress);
@@ -36,4 +36,4 @@ mongoose.connect(mongooseAddress);
 routes(app, express);
 
 app.listen(port);
-console.log('Magic happens on port ' + port);
+//console.log('Magic happens on port ' + port);
