@@ -27,7 +27,6 @@ var port = 9090;
 var domain = 'localhost'
 var mongoose = Promise.promisifyAll(require('mongoose'));
 
-
 //mongoose.connect('localhost:27017/petitchefv2');
 
 routes(app, express);
