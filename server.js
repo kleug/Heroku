@@ -27,9 +27,9 @@ var port = process.env.PORT || 9090;
 var domain = 'localhost'
 var mongoose = Promise.promisifyAll(require('mongoose'));
 
-var mongooseAddress = process.env.MONGOLAB_URI || 'localhost:27017/petitchefv2'
+var mongooseAddress = process.env.MONGODB_URI || 'localhost:27017/petitchefv2'
 console.log("ENV ========= %j", process.env);
-console.log('mongoose  uri  :  ' + process.env.MONGOLAB_URI);
+console.log('mongoose  uri  :  ' + process.env.MONGODB_URI);
 console.log('mongoose connecting add  :  ' + mongooseAddress);
 mongoose.connect(mongooseAddress);
 
