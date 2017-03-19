@@ -28,7 +28,9 @@ var domain = 'localhost'
 var mongoose = Promise.promisifyAll(require('mongoose'));
 
 var mongooseAddress = process.env.MONGOLAB_URI || 'localhost:27017/petitchefv2'
-console.log('mongoose connecting add' + mongooseAddress);
+console.log(process.env);
+console.log('mongoose  uri  :  ' + process.env.MONGOLAB_URI);
+console.log('mongoose connecting add  :  ' + mongooseAddress);
 mongoose.connect(mongooseAddress);
 
 routes(app, express);
