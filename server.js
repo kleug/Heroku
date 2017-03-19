@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var port = 9090;
+var port = process.env.PORT || 9090;
 var domain = 'localhost'
 var mongoose = Promise.promisifyAll(require('mongoose'));
 
