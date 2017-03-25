@@ -5,8 +5,6 @@ var Forgot = require('../models/forgot');
 // Import Modules
 var Promise = require('bluebird');
 var crypto = require('crypto');
-var nodemailer = require('nodemailer');
-var smtpTransport = require('nodemailer-smtp-transport');
 var multer = require('multer');
 var express = require('express');
 
@@ -351,7 +349,7 @@ router.delete("/:id", function(req, res) {
 	if (!result)
 	    return Utils.sendUnauthorized(req, res);
 	// No check if remove delete something or not. Result in
-	// user.result.nconsole.log()
+	// user.result.n console.log()
 	User.remove({_id: req.params.id}, function(err, user) {
 	    if (err)
 	    	return Utils.sendError(res, err);

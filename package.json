@@ -16,9 +16,7 @@
     "mongoose": "^4.8.3",
     "multer": "^1.1.0",
     "bluebird": "^3.4.0",
-    "nodemailer": "^3.1.0",
-    "nodemailer-smtp-transport": "^2.7.2",
-    "swagger-node-express": "^2.0",
+    "sendgrid": "*",
     "body-parser": "^1.9.x",
     "underscore": "*"
   }
