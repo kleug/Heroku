@@ -14,6 +14,8 @@ define("_CODE_WELCOME_", 4);
 define("_CODE_FAILED_", -1);
 define("_CODE_ARGS_", -2);
 define("_CODE_TOKEN_", -3);
+define("_CODE_PWD_", -4);
+define("_CODE_MAIL_", -5);
 define("_CODE_ERROR_", 403);
 
 /* Definition of message returned by API */
@@ -28,8 +30,15 @@ define("_MSG_ARGS_", "Bad JSON body or Argument(s) provided");
 define("_MSG_TOKEN_", "Error relevant to token API ('Authorization' header)");
 define("_MSG_UNAUTHORIZED_", "Your user is not allowed to access to this resource");
 define("_MSG_MISSING_PARAMS_", "Missing params");
+define("_MSG_MAIL_FORM_", "Bad email format");
+define("_MSG_PWD_FORM_", "Bad password format");
+
 
 /* Definition of global variables */
 define("_TRUE_", "true");
 define("_MSG_WELCOME_", "Welcome message");
+define("_HOST_", "http://localhost:9090");
 
+/* Definition of regex rules */
+define("_REGEX_PWD_", /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/);
+define("_REGEX_MAIL_", /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/);
