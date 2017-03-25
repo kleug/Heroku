@@ -16,7 +16,7 @@
     "mongoose": "^4.8.3",
     "multer": "^1.1.0",
     "bluebird": "^3.4.0",
-    "sendgrid": "*",
+    "sendgrid": "4.8.x",
     "body-parser": "^1.9.x",
     "underscore": "*"
   }
